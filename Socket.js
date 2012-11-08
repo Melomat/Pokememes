@@ -8,6 +8,7 @@ function init() {
 		socket.onmessage =
 		//When client receive a message
 		function (msg) {
+
 			alert(msg)
 			var msgData = msg.data.split(":");
 			if (msgData[0] == "persoChoisi") {

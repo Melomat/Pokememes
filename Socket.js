@@ -4,7 +4,8 @@ function init() {
 	var host = "ws://localhost:12345/websocket/server.php";
 	try {
 		alert("tupue");
-		socket = new WebSocket(host);
+		alert("sale");
+		socket(host);
 		socket.onopen = function (msg) { alert(msg)};
 		socket.onmessage =
 		//When client receive a message

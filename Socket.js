@@ -3,6 +3,7 @@ var socket;
 function init() {
 	var host = "ws://localhost:12345/websocket/server.php";
 	try {
+		alert("tupue");
 		socket = new WebSocket(host);
 		socket.onopen = function (msg) { alert(msg)};
 		socket.onmessage =

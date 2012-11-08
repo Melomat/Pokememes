@@ -5,7 +5,7 @@ function init() {
 	try {
 		alert("tupue");
 		alert("sale");
-		socket(host);
+		socket = new WebSocket(host);
 		socket.onopen = function (msg) { alert(msg)};
 		socket.onmessage =
 		//When client receive a message

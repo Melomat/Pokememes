@@ -3,10 +3,7 @@ var socket;
 function init() {
 	var host = "ws://localhost:12345/websocket/server.php";
 	try {
-		//comentaire
-
-		alert("tupue");
-		alert("sale");
+		//Websocket creation
 		socket = new WebSocket(host);
 		socket.onopen = function (msg) { alert(msg)};
 		socket.onmessage =
@@ -57,7 +54,7 @@ function persoChoisi(persoId)
 	try{ socket.send("persoChoisi:" + persoId); } catch(ex){ }
 }
 
-///fonction d'attaque
+//fonction d'attaque
 function attack(){
 	
 	try{ 

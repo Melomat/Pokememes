@@ -1,0 +1,147 @@
+body, p, h2 { 
+    margin: 0; 
+    padding:0; 
+    overflow:hidden;
+}
+
+.charactersChoserBackground
+{
+    width:100%;
+    height:400px; 
+    background-color: #808080;
+    font-size: 0;
+	
+}
+
+#charactersContainer
+{
+    background-color: #b6ffff; 
+    height: 300px; 
+    width:40%; 
+    display:inline-block; 
+    position:relative; 
+    overflow:hidden;
+    font-size: 1rem;
+	vertical-align: top;
+}
+
+#mov
+{
+    background-color: #000000; 
+    height:300px; 
+    position:relative;
+	
+}
+
+#myRange
+{
+    width: 40%;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	-webkit-appearance: none;
+    background-color: #00b4ba;
+    height:20px;
+}
+
+#myRange::-webkit-slider-thumb 
+{
+     -webkit-appearance: none;
+    background-color: blue;
+    opacity: 0.8;
+    width: 15px;
+    height: 26px;
+}
+
+#rangeContainer
+{
+	text-align: center;
+	background-color: #b6ff00;
+}
+
+.characterDiv
+{
+	vertical-align: top;
+    height: 280px;
+    background-color: #00b4ba;
+    display:inline-block; 
+    margin-left:10px;
+    margin-top: 10px;
+	text-align: center;	
+}
+
+#leftCharacter
+{
+	text-align: center;
+	vertical-align: top;
+}
+
+#rightCharacter
+{
+	text-align: center;
+}
+
+.characterSide
+{
+    width:30%;
+    height:300px;
+    background-color:#b6ff00;
+    display: inline-block;
+	overflow:hidden;
+}
+
+#chosenCharacter
+{
+	
+	height: 280px;
+    background-color: #00b4ba; 
+    margin-left: auto;
+	margin-right: auto;
+    margin-top: 10px;
+	text-align: center;	
+	font-size: 16px;
+
+}
+
+.characterImage
+{
+	max-width: 100%;
+
+}
+
+.characterName
+{
+	font-family: Arial;
+	color: #000000;
+	background-color: blue;
+}
+
+.characterImageDiv
+{
+	width:	100%;
+}
+
+.charactersLife
+{
+	height: 50px;
+}
+
+#loader
+{
+	height: 128px;
+	width: 128px;
+	margin-left: auto;
+	margin-right: auto;	
+	background-image: url('Shape53.png');
+	margin-top: 100px;
+
+}
+
+#volume
+{
+	width: 100px;
+	height: 100px;
+	background-image:url('mute-off.png');
+	background-size: contain;
+}

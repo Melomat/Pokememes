@@ -24,6 +24,7 @@ function init() {
 	catch (ex) { }
 }
 
+//fait en sorte d'afficher le perso ennemi
 function ennemyCharacter(idPerso)
 {
 	idEnemyCharacter = idPerso;

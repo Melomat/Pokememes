@@ -19,6 +19,7 @@
   		movEl.style.left = (leftShiftForCharactersContainer - range.value) + "px";
   	}
 
+	
   	function addRangeSlider() {
   		var rangeDiv = document.getElementById("rangeDiv");
 

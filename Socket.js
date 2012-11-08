@@ -24,6 +24,7 @@ function init() {
 	catch (ex) { }
 }
 
+//caca proout prout
 function ennemyCharacter(idPerso)
 {
 	idEnemyCharacter = idPerso;

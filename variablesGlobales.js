@@ -10,3 +10,4 @@ var idEnemyCharacter;
 var loaderHidden = false;
 var volumeMuted = false;
 var loaderInterval;
+var listePersos = [];

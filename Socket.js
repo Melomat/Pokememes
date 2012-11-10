@@ -5,23 +5,21 @@ function init() {
 	try {
 		//Websocket creation
 		socket = new WebSocket(host);
-		socket.onopen = function (msg) { alert(msg)};
+		socket.onopen = function (msg) {};
 		socket.onmessage =
 		//When client receive a message
 		function (msg) {
-
-			alert(msg)
 			var msgData = msg.data.split(":");
 			if (msgData[0] == "persoChoisi") {
 				ennemyCharacter(msgData[1]);
 			}
 			else if (msgData[0] == "commencerCombat") {
-				alert(msgData[1]);
+				commencerCombat()
 			}
 		};
 		socket.onclose = function (msg) { };
 	}
-	catch (ex) { }
+	catch (ex){ }
 }
 
 
@@ -54,6 +52,18 @@ function send(message){
 function persoChoisi(persoId)
 {
 	try{ socket.send("persoChoisi:" + persoId); } catch(ex){ }
+}
+
+
+function commencerCombat()
+{
+	canvas = document.createElement("canvas");
+	canvas.setAttribute("id", "canvas");
+	document.getElementById("body").appendChild(canvas);
+	resizeCanvas();
+	startDrawLine(0);
+
+	setTimeout("startClearLine(0)", 2000);
 }
 
 //fonction d'attaque

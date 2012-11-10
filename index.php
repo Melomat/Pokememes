@@ -3,8 +3,10 @@
 	<head>
 		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<script src="variablesGlobales.js" type="text/javascript"></script>
+    <script type="text/javascript", src="Personnage.class.js"></script>
 		<script type="text/javascript" src="Socket.js"></script>
-		<script type="text/javascript">
+		<script type="text/javascript" src="affichagePersonnages.js"></script>
+	<script type="text/javascript">
   	function movWidthCalcul() {
   		movEl = document.getElementById("mov");
   		movEl.style.width = (nbPersonnages * (largeurDivPersonnages + 10) + 10) + "px";
@@ -31,55 +33,15 @@
   		range.setAttribute("max", "0");
   		rangeDiv.appendChild(range);
   		range.addEventListener('change', function () { sliderChange() }, false);
-
   	}
 
-  	function chosenCharacter(character) {
-  		var div = character.cloneNode(true);
-  		div.setAttribute("id", "chosenCharacter");
-  		div.removeAttribute("class");
-
-  		var leftCharacterDiv = document.getElementById("leftCharacter");
-  		if (leftCharacterDiv.childNodes.length) {
-  			leftCharacterDiv.removeChild(leftCharacterDiv.firstChild);
-  		}
-  		else {
-  			var button = document.createElement("input");
-  			button.setAttribute("type", "button");
-  			button.setAttribute("value", "FIGHT !!!!");
-  			button.addEventListener('click', function () { goToFight(character.dataset.character) }, false);
-  			document.getElementById("rangeContainer").appendChild(button);
-  		}
-
-  		leftCharacterDiv.appendChild(div);
-  		//          document.getElementById("leftCharacter").innerHTML = character.innerHTML;
-
-  		persoChoisi(character.dataset.character);
-  	}
 
   	function goToFight(characterID) {
   		alert("fight");
   		try { socket.send("persoConfirme:" + characterID); } catch (ex) { }
   	}
 
-  	function ennemyChosenCharacter() {
-  		var nodes = document.getElementById("mov").childNodes;
-  		for (var i = 0; i < nodes.length; i++) {
-  			var character = nodes[i];
-  			if (character.dataset.character == idEnemyCharacter) {
-  				var div = character.cloneNode(true);
-  				div.setAttribute("id", "chosenCharacter");
-  				div.removeAttribute("class");
-  				var rightCharacter = document.getElementById("rightCharacter");
-
-  				if (rightCharacter.childNodes.length) {
-  					rightCharacter.removeChild(rightCharacter.firstChild);
-  				}
-
-  				rightCharacter.appendChild(div);
-  			}
-  		}
-  	}
+  	
 
   	function initLoaderVar() {
   		loader = document.getElementById("loader");
@@ -96,7 +58,6 @@
   			opacity = opacity - 0.1;
   		}
   		else {
-  			alert("");
   			clearInterval(loaderInterval);
   			clearInterval(rotationInterval);
   			var rightCharacter = document.getElementById("rightCharacter");
@@ -117,13 +78,13 @@
 
   		audioElm.muted = !audioElm.muted;
   	}
-		</script>
-		
+	</script>
+  <script type="text/javascript" src="canvas.js"></script>
         <script type="text/javascript" src="getCharacters.js"></script>
-        <script src="positionSouris.js"></script>
-        <link rel="stylesheet" type="text/css" href="Style.css" /> 
+		
+        <link rel="stylesheet" type="text/css" href="Style.css" />
 	</head>
-	<body onload="init()">
+	<body onload="init()" id="body">
 		<div class="charactersChoserBackground">
 			<div style="height: 400px" id="globalDiv">
 				<div id="leftCharacter" class="characterSide"></div>

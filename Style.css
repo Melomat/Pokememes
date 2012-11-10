@@ -145,3 +145,11 @@ body, p, h2 {
 	background-image:url('mute-off.png');
 	background-size: contain;
 }
+
+#canvas
+{
+	position: fixed;
+	z-index:10 ;
+	top:0px;
+	left:0px;
+}

@@ -18,16 +18,18 @@ function callExternalScript(url)
                 var chars_div = document.getElementById('mov');
                 for (i in json)
                 {
+                    var personnage = new Perso(i, "http://louwii.fr" + json[i].pic, json[i].name);
+                        listePersos.push(personnage);
                         var chardiv = document.createElement("div");
                         chardiv.className = "characterDiv";
 
-                        chardiv.setAttribute("data-character", i + "");
+                        chardiv.setAttribute("data-character", personnage.id + "");
                         chardiv.style.width = largeurDivPersonnages + "px";
                         chardiv.addEventListener('click', function () { chosenCharacter(this); }, false);
                        
 						var cont = document.createElement("h2");
 						cont.className="characterName";
-                        var characterName = document.createTextNode(json[i].name);
+                        var characterName = document.createTextNode(personnage.nom);
 						cont.appendChild(characterName);
                         chardiv.appendChild(cont);
 
@@ -35,21 +37,22 @@ function callExternalScript(url)
 					    imageDiv.className = "characterImageDiv";
 						var pic = document.createElement("img");
                         pic.setAttribute("class", "characterImage");
-                        pic.setAttribute("src", "http://louwii.fr" + json[i].pic);
+                        pic.setAttribute("src", personnage.image);
                         pic.setAttribute("alt", json[i].name + " avatar");
                         imageDiv.appendChild(pic)
 						chardiv.appendChild(imageDiv);
 
 						var charactersLife = document.createElement("p");
 						charactersLife.className = "charactersLife";
-						var text = document.createTextNode("Vie : " + json[i].vie);
+						var text = document.createTextNode("Vie : " + personnage.vie);
 						charactersLife.appendChild(text);
 						chardiv.appendChild(charactersLife);
                         
 						chars_div.appendChild(chardiv);
                 }
-
+                
 				movWidthCalcul();
                 leftShiftCalcul();
                 addRangeSlider();
+            
         }

@@ -63,7 +63,26 @@ function commencerCombat()
 	resizeCanvas();
 	startDrawLine(0);
 
+	
+	
+
 	setTimeout("startClearLine(0)", 2000);
+}
+
+//permet de retirer les éléments de choix de personnage
+function removeCharacterChoserDivs()
+{
+	var body = document.getElementById("body");
+	var nodes = body.childNodes;
+	for(i = nodes.length-1 ; i > 0 ; i--) 
+	{
+		var child = nodes[i];
+		if(child.nodeName != "CANVAS")
+		{
+			body.removeChild(body.childNodes[i]);
+		}
+	}
+	
 }
 
 //fonction d'attaque

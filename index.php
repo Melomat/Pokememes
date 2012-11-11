@@ -37,7 +37,6 @@
 
 
   	function goToFight(characterID) {
-  		alert("fight");
   		try { socket.send("persoConfirme:" + characterID); } catch (ex) { }
   	}
 

@@ -1,4 +1,4 @@
-
+//lance le dessin de lignes pour des coordonnées y différentes
 function startDrawLine(y)
 {
     canvas = document.getElementById("canvas");
@@ -10,6 +10,8 @@ function startDrawLine(y)
      }   
 }
 
+
+//Dessine un carré qui a pour origine x et y
 function drawline(x, y)
 {
     canvas = document.getElementById("canvas");
@@ -20,9 +22,19 @@ function drawline(x, y)
     {
         x+=49;
         setTimeout("drawline("+x+","+y+")", 20);
-    }   
+    }
+    else 
+    {
+        //y+100 car on veut savoir si c'est la derneire ligne qui a disparu
+        if(y+100 >= canvas.offsetHeight)
+        {
+            removeCharacterChoserDivs();
+            addCombatDIvs();
+        }
+    }  
 }
 
+//permet le resimenssionnement du canvas (règle les bugs de height et width)
 function resizeCanvas()
 {
     var canvas = document.getElementById("canvas");
@@ -30,6 +42,8 @@ function resizeCanvas()
     canvas.width= window.innerWidth;
 }
 
+
+//lance le "nettoyage" du canvas pour des coordonnées y différentes
 function startClearLine(y)
 {
     canvas = document.getElementById("canvas");
@@ -41,6 +55,8 @@ function startClearLine(y)
      }   
 }
 
+
+//"néttoie le canvas pour un carré qui a pour origine x et y
 function clearline(x, y)
 {
     canvas = document.getElementById("canvas");

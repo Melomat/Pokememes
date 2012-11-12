@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -5,6 +6,7 @@
 		<script src="variablesGlobales.js" type="text/javascript"></script>
     <script type="text/javascript", src="Personnage.class.js"></script>
 		<script type="text/javascript" src="Socket.js"></script>
+    <script type="text/javascript" src="combat.js"></script>
 		<script type="text/javascript" src="affichagePersonnages.js"></script>
 	<script type="text/javascript">
   	function movWidthCalcul() {

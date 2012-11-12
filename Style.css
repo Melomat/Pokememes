@@ -1,3 +1,4 @@
+
 body, p, h2 { 
     margin: 0; 
     padding:0; 
@@ -152,4 +153,27 @@ body, p, h2 {
 	z-index:10 ;
 	top:0px;
 	left:0px;
+}
+
+.combatCharacterDiv
+{
+	height : 300px;
+	width  : 300px;
+	background-color: blue;
+}
+
+
+#combatEnnemyDiv
+{
+	float:right;
+}
+
+#combatSelfDiv
+{
+	margin-top: 200px;
+}
+
+.globalCharacterDiv
+{
+	height:200px;
 }

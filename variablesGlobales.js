@@ -11,3 +11,5 @@ var loaderHidden = false;
 var volumeMuted = false;
 var loaderInterval;
 var listePersos = [];
+var persoSelf;
+var persoEnnemi;

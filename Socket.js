@@ -13,8 +13,11 @@ function init() {
 			if (msgData[0] == "persoChoisi") {
 				ennemyCharacter(msgData[1]);
 			}
+			//commencerCombat:<numJoueur>:idPerso
 			else if (msgData[0] == "commencerCombat") {
-				commencerCombat()
+
+				commencerCombat(msgData[1]);
+				persoEnnemi = listePersos[msgData[2]];
 			}
 		};
 		socket.onclose = function (msg) { };
@@ -52,10 +55,11 @@ function send(message){
 function persoChoisi(persoId)
 {
 	try{ socket.send("persoChoisi:" + persoId); } catch(ex){ }
+	persoSelf = listePersos[persoId]; 
 }
 
 
-function commencerCombat()
+function commencerCombat(numeroJoueur)
 {
 	canvas = document.createElement("canvas");
 	canvas.setAttribute("id", "canvas");

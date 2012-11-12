@@ -67,5 +67,13 @@ function clearline(x, y)
     {
         x+=49;
         setTimeout("clearline("+x+","+y+")", 20);
-    }   
+    }  
+     else 
+    {
+        //y+100 car on veut savoir si c'est la derneire ligne qui a disparu
+        if(y+100 >= canvas.offsetHeight)
+        {
+            document.getElementById("body").removeChild(canvas);
+        }
+    }  
 }

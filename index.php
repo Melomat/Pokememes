@@ -5,6 +5,7 @@
 		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<script src="variablesGlobales.js" type="text/javascript"></script>
     <script type="text/javascript", src="Personnage.class.js"></script>
+    <script type="text/javascript" src="barreDeVie.class.js"></script>
 		<script type="text/javascript" src="Socket.js"></script>
     <script type="text/javascript" src="combat.js"></script>
 		<script type="text/javascript" src="affichagePersonnages.js"></script>

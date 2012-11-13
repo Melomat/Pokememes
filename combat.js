@@ -10,7 +10,6 @@ function addCombatDIvs()
 	ennemyDiv.setAttribute("id", "combatEnnemyDiv");
 	globalCharacterDiv.appendChild(ennemyDiv);
 
-	
 
 	var photo = document.createElement("img");
 	photo.className = "characterImage";
@@ -30,5 +29,15 @@ function addCombatDIvs()
 	photo2.className = "characterImage";
 	photo2	.setAttribute("src", persoSelf.image);
 	selfDiv.appendChild(photo2);
+
+	var ennemyBarreDeVie = document.createElement("div");
+	ennemyBarreDeVie.setAttribute("id", "barreDeVieEnnemie")
+	ennemyDiv.appendChild(ennemyBarreDeVie);
+	persoEnnemi.barreDeVie = new barreDeVie("barreDeVieEnnemie");
+	setTimeout(function(){persoEnnemi.perdreVie(300);}, 3000) ;
+
+	setTimeout(function(){persoEnnemi.perdreVie(300);}, 5000) ;
+
+	
 
 }

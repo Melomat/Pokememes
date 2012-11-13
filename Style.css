@@ -177,3 +177,13 @@ body, p, h2 {
 {
 	height:200px;
 }
+
+.barreDeVie
+{
+	height: 10px;
+	width: 300px;
+	background-color: green;
+	-webkit-transition-property:width, background-color;
+	-webkit-transition-duration:1s;
+	-webkit-transition-timing-function:linear
+}

@@ -3,20 +3,19 @@ body, p, h2 {
     margin: 0; 
     padding:0; 
     overflow:hidden;
+    font-family : Arial;
 }
 
 .charactersChoserBackground
 {
     width:100%;
     height:400px; 
-    background-color: #808080;
     font-size: 0;
 	
 }
 
 #charactersContainer
 {
-    background-color: #b6ffff; 
     height: 300px; 
     width:40%; 
     display:inline-block; 
@@ -58,14 +57,13 @@ body, p, h2 {
 #rangeContainer
 {
 	text-align: center;
-	background-color: #b6ff00;
 }
 
 .characterDiv
 {
 	vertical-align: top;
     height: 280px;
-    background-color: #00b4ba;
+    background-color: white;
     display:inline-block; 
     margin-left:10px;
     margin-top: 10px;
@@ -87,7 +85,7 @@ body, p, h2 {
 {
     width:30%;
     height:300px;
-    background-color:#b6ff00;
+background-color: black;
     display: inline-block;
 	overflow:hidden;
 }
@@ -96,7 +94,7 @@ body, p, h2 {
 {
 	
 	height: 280px;
-    background-color: #00b4ba; 
+
     margin-left: auto;
 	margin-right: auto;
     margin-top: 10px;
@@ -107,15 +105,16 @@ body, p, h2 {
 
 .characterImage
 {
-	max-width: 100%;
+	max-width: 96%;
 
 }
 
 .characterName
 {
+	margin:5px;
 	font-family: Arial;
-	color: #000000;
-	background-color: blue;
+	color: #FFFFFF;
+	background-color: #FF4242;
 }
 
 .characterImageDiv
@@ -125,7 +124,23 @@ body, p, h2 {
 
 .charactersLife
 {
-	height: 50px;
+	margin:5px;
+	height: 45px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #FFDD00;
+	line-height: 45px;
+	text-align: left;
+}
+
+.heartDiv
+{
+	display: inline-block;
+	height: 45px;
+	width: 45px;
+	background-size: contain;
+	background-image: url("../images/heart.png");
 }
 
 #loader
@@ -134,7 +149,7 @@ body, p, h2 {
 	width: 128px;
 	margin-left: auto;
 	margin-right: auto;	
-	background-image: url('Shape53.png');
+	background-image: url('../images/Shape53.png');
 	margin-top: 100px;
 
 }
@@ -143,7 +158,7 @@ body, p, h2 {
 {
 	width: 100px;
 	height: 100px;
-	background-image:url('mute-off.png');
+	background-image:url('../images/mute-off.png');
 	background-size: contain;
 }
 
@@ -159,31 +174,72 @@ body, p, h2 {
 {
 	height : 300px;
 	width  : 300px;
-	background-color: blue;
+	background-color: E8EEFF;
+	text-align: center;
+	border: solid 1px;
 }
 
 
 #combatEnnemyDiv
 {
 	float:right;
+	margin-right: 10px;
 }
 
 #combatSelfDiv
 {
-	margin-top: 200px;
+	display : inline-block;
+	vertical-align: top;
+	margin-left: 10px;
 }
 
 .globalCharacterDiv
 {
-	height:200px;
+	height : 300px;
 }
 
 .barreDeVie
 {
 	height: 10px;
 	width: 300px;
+	margin-top:10px;
 	background-color: green;
 	-webkit-transition-property:width, background-color;
-	-webkit-transition-duration:1s;
-	-webkit-transition-timing-function:linear
+	-webkit-transition-duration:300ms;
+	-webkit-transition-timing-function:ease-out;
+}
+
+
+#attaqueChoserDiv
+{
+	height:300px;
+	width:500px;
+	background-color: E8EEFF;
+	overflow: hidden;
+	display: inline-block;
+	margin-left: 50px;
+	border: solid 1px;
+}
+
+#selfDiv
+{
+	margin-top: 100px;
+
+}
+
+#attaqueDiv
+{
+	height: 300px;
+	width: 500px;
+	position: fixed;
+	top:0px;
+	left:-500px;
+	-webkit-transition-property:left;
+	-webkit-transition-duration:600ms;
+	-webkit-transition-timing-function:cubic-bezier(0, 0, .58, 1);
+}
+
+#video
+{
+	max-height: 100%;
 }

@@ -10,6 +10,9 @@ var idEnemyCharacter;
 var loaderHidden = false;
 var volumeMuted = false;
 var loaderInterval;
+
 var listePersos = [];
+var listeAttaques = [];
+
 var persoSelf;
 var persoEnnemi;

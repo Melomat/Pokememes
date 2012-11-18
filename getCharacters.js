@@ -42,10 +42,18 @@ function callExternalScript(url)
                         imageDiv.appendChild(pic)
 						chardiv.appendChild(imageDiv);
 
-						var charactersLife = document.createElement("p");
+                        var charactersLife = document.createElement("div");
 						charactersLife.className = "charactersLife";
-						var text = document.createTextNode("Vie : " + personnage.vie);
-						charactersLife.appendChild(text);
+
+                        var heartDiv = document.createElement("div");
+                        heartDiv.className = "heartDiv";
+                        charactersLife.appendChild(heartDiv);
+
+
+						var charactersLifeText = document.createElement("p");
+                        var text = document.createTextNode(personnage.vie);
+						charactersLifeText.appendChild(text);
+                        charactersLife.appendChild(charactersLifeText);
 						chardiv.appendChild(charactersLife);
                         
 						chars_div.appendChild(chardiv);

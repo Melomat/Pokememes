@@ -2,7 +2,7 @@
 function chosenCharacter(character) {
   		var div = character.cloneNode(true);
   		div.setAttribute("id", "chosenCharacter");
-  		div.removeAttribute("class");
+  		
 
   		var leftCharacterDiv = document.getElementById("leftCharacter");
   		if (leftCharacterDiv.childNodes.length) {
@@ -11,6 +11,7 @@ function chosenCharacter(character) {
   		else {
   			var button = document.createElement("input");
   			button.setAttribute("type", "button");
+        button.setAttribute("id", "fightButton");
   			button.setAttribute("value", "FIGHT !!!!");
   			button.addEventListener('click', function () { goToFight(character.dataset.character) }, false);
   			document.getElementById("rangeContainer").appendChild(button);
@@ -29,7 +30,6 @@ function chosenCharacter(character) {
   			if (character.dataset.character == idEnemyCharacter) {
   				var div = character.cloneNode(true);
   				div.setAttribute("id", "chosenCharacter");
-  				div.removeAttribute("class");
   				var rightCharacter = document.getElementById("rightCharacter");
 
   				if (rightCharacter.childNodes.length) {

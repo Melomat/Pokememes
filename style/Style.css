@@ -1,0 +1,354 @@
+@font-face {
+	font-family: pixel_font;
+	src: url('../fonts/uni05_53.ttf');
+}
+ 
+ body { 
+    margin: 0; 
+    padding:0; 
+    overflow:auto; 
+    background-color: #FDFDFD;
+    min-height: 650px; 
+    height: 100%;
+}
+
+#content
+{
+	height: 100%;
+	width: 100%;
+	min-height: 600px;
+	position:relative;
+}
+
+h2, p
+{
+	font-family : Arial;
+	font-size: 23px;
+	margin:0px;
+}
+
+
+#PokememeHeader
+{
+	width              : 100%;
+	height             : 100px;
+	background-image   : url("../images/titre.png");
+	background-position: center;
+	background-repeat  : no-repeat;
+	background-color   : F8F8F8;
+	-webkit-box-shadow : inset 0 1px 5px #9F9F9F;
+
+}
+
+#PokememeFooter
+{
+	width             : 100%;
+	background-color  : F8F8F8;
+	-webkit-box-shadow: inset 0 -1px 5px #9F9F9F;
+	position          : absolute;
+	bottom            : 0px;
+	display           : block;
+	height            : 100px;
+	text-align: center;
+	line-height: 100px;
+}
+
+#PokememeFooter > p
+{
+	font-family: pixel_font;
+	color      : #373737;
+	font-size  : 12px;
+	display    : inline-block;
+	vertical-align: middle;
+}
+
+#volume
+{
+	width              : 100px;
+	height             : 100px;
+	background-image   : url('../images/son_on.png');
+	background-size    : length;
+	background-repeat  : no-repeat;
+	background-position: center;
+	position: absolute;
+	left:0px;
+	vertical-align: middle;
+}
+
+#globalChooserDiv
+{
+	font-size : 0;
+	height    :300px;
+	margin-top: 20px;
+	clear     :both;
+	min-height: 300px;
+}
+
+
+#globalChooserDiv > *
+{
+	font-size: 1rem;
+	box-sizing :border-box;
+}
+
+#charactersContainer
+{
+	
+    height: 300px; 
+    width:100%; 
+    display:inline-block; 
+    position:relative; 
+    overflow:hidden;
+    font-size: 1rem;
+	vertical-align: top;
+}
+    
+#shadowContainerDiv
+{
+	height: 300px; 
+    width:40%; 
+    font-size: 1rem;
+	vertical-align: top;
+	display: inline-block;
+	-webkit-box-shadow:inset 0 1px 5px #BFBFBF;
+	padding: 3px;
+}
+
+
+
+#mov
+{
+    height:300px; 
+    position:relative;
+}
+
+#myRange
+{
+    width: 40%;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	-webkit-appearance: none;
+    background-color: #ADEBED;
+    height:20px;
+    -webkit-border-radius : 10px 10px;
+    -webkit-box-shadow: 0 3px 3px;
+}
+
+#myRange::-webkit-slider-thumb 
+{
+     -webkit-appearance: none;
+    background-image: url("../images/bt_bleu.png");
+    opacity: 0.9;
+    width: 60px;
+    height: 20px;
+    -webkit-border-radius : 10px 10px;
+
+}
+
+#rangeContainer
+{
+	text-align: center;
+}
+
+.characterDiv
+{
+	padding           : 5px;
+	box-sizing        : border-box;
+	vertical-align    : top;
+	height            : 280px;
+	background-color  : white;
+	display           :inline-block; 
+	margin-left       :10px;
+	margin-top        : 10px;
+	text-align        : center;
+	-webkit-box-shadow: 0 1px 3px;
+}
+
+#leftCharacter
+{
+	text-align: center;
+	vertical-align: top;
+}
+
+#rightCharacter
+{
+	text-align: center;
+}
+
+#rightCharacter > p
+{
+	font-family: Arial;
+	font-weight: bold;
+	color      : #373737;
+	font-size: 13px;
+	margin: 20px;
+}
+
+.characterSide
+{
+	position:relative;
+    width:30%;
+    height:300px;
+    display: inline-block;
+	overflow:hidden;
+}
+
+#fightButton
+{
+	padding         : 10px 20px !important;
+	font-size       : 14px !important;
+	font-family: pixel_font;
+	margin-top      : 20px;
+	background-color: #BFBFBF;
+	font-weight     : bold;
+	color           : #FFFFFF;
+	border: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.characterImage
+{
+	max-width: 100%;
+
+}
+
+.characterName
+{
+	margin-bottom:5px;
+	font-family: Arial;
+	color: #FFFFFF;
+	background-color: #FF4242;
+}
+
+
+
+.characterImageDiv
+{
+	width:	100%;
+}
+
+.charactersLife
+{
+	margin-top      :5px;
+	height          : 45px;
+	font-size       : 16px;
+	font-weight     : bold;
+	color           : #FFFFFF;
+	background-color: #FFDD00;
+	line-height     : 45px;
+	text-align      : left;
+}
+
+.charactersLife > p
+{
+	vertical-align: middle;
+	display:inline-block;
+	width:60px;
+	line-height: 45px;
+}
+
+.heartDiv
+{
+	display: inline-block;
+	height: 45px;
+	width: 45px;
+	background-size: contain;
+	background-image: url("../images/heart.png");
+	vertical-align: middle;
+}
+
+#loader
+{
+	height: 128px;
+	width: 128px;
+	margin-left: auto;
+	margin-right: auto;	
+	background-image: url('../images/Shape53.png');
+	margin-top: 100px;
+
+}
+
+#canvas
+{
+	position: fixed;
+	z-index:10 ;
+	top:0px;
+	left:0px;
+}
+
+.combatCharacterDiv
+{
+	height : 300px;
+	width  : 300px;
+	background-color: E8EEFF;
+	text-align: center;
+	border: solid 1px;
+}
+
+
+#combatEnnemyDiv
+{
+	float       :right;
+	margin-right: 10px;
+}
+
+#combatSelfDiv
+{
+	display       : inline-block;
+	vertical-align: top;
+	margin-left   : 10px;
+}
+
+.globalCharacterDiv
+{
+	height : 300px;
+}
+
+.barreDeVie
+{
+	height          : 10px;
+	width           : 300px;
+	margin-top      :10px;
+	background-color: green;
+	-webkit-transition-property:width, background-color;
+	-webkit-transition-duration:300ms;
+	-webkit-transition-timing-function:ease-out;
+}
+
+
+#attaqueChoserDiv
+{
+	height          :300px;
+	width           :500px;
+	background-color: E8EEFF;
+	overflow        : hidden;
+	display         : inline-block;
+	margin-left     : 50px;
+	border          : solid 1px;
+}
+
+#selfDiv
+{
+	margin-top: 100px;
+
+}
+
+#attaqueDiv
+{
+	height  : 300px;
+	width   : 500px;
+	position: fixed;
+	top     :0px;
+	left    :-500px;
+	-webkit-transition-property:left;
+	-webkit-transition-duration:600ms;
+	-webkit-transition-timing-function:cubic-bezier(0, 0, .58, 1);
+}
+
+#video
+{
+	max-height: 100%;
+}

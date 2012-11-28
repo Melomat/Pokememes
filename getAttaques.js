@@ -12,41 +12,46 @@
 
         function remplirAttaquesSelf(json)
         {
-            persoSelf.attaques = creerAttaquesjson,
-            for(j = 0 ; j < listeAttaques.length ; j++)
+            persoSelf.attaques = creerAttaque(json);
+            for(i = 0 ; i < persoSelf.attaques.length ; i++)
             {
-                var attaque = listeAttaques[j];
+                console.log(persoSelf.attaques[i].nom);
+                console.log("degats" + persoSelf.attaques[i].degats);
             }
+            
         }
 
         function remplirAttaquesEnnemy(json)
         {
-            persoEnnemi.attaques = creerAttaquesjson,
-            for(j = 0 ; j < listeAttaques.length ; j++)
-            {
-                var attaque = listeAttaques[j];
-            }
+            persoEnnemi.attaques = creerAttaque(json);
+            addAttaquesDiv();
         }
 
         function creerAttaque(json)
         {
 
             var attaques = [];
-
+            var lesSources;
             for (i in json)
             {
+                var attaque;
                 lesSources = [];
                 sourcesJSon = json[i].sources;
                 if(json[i].type == "1")
                 {
-                    lesSources = [sourcesJSon[0]];
+                    lesSources.push("http://louwii.fr"+sourcesJSon[0]);
+                    console.log(sourcesJSon[0]);
+                    attaque = new attaqueVideo(json[i].id, json[i].name, json[i].damages, lesSources);
+                    console.log(attaque);
                 }
                 else
                 {
-                    lesSources = [sourcesJSon[0], sourcesJSon[1]];
+                    lesSources.push("http://louwii.fr"+sourcesJSon[1]);
+                    lesSources.push("http://louwii.fr"+sourcesJSon[2]);
+                    attaque = new attaqueAudio(json[i].id, json[i].name, json[i].damages, lesSources);
+                    console.log(attaque);
                 }
-
-                var attaque = new Attaque(json[i].name, json[i].damages, json[i].type, lesSources);
+                 
 
                 attaques.push(attaque);
             }

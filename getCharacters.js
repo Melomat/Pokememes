@@ -18,7 +18,7 @@ function callExternalScript(url)
                 var chars_div = document.getElementById('mov');
                 for (i in json)
                 {
-                    var personnage = new Perso(i, "http://louwii.fr" + json[i].pic, json[i].name);
+                    var personnage = new Perso(json[i].id, "http://louwii.fr" + json[i].pic, json[i].name);
                         listePersos.push(personnage);
                         var chardiv = document.createElement("div");
                         chardiv.className = "characterDiv";
@@ -58,7 +58,6 @@ function callExternalScript(url)
                         
 						chars_div.appendChild(chardiv);
                 }
-                
 				movWidthCalcul();
                 leftShiftCalcul();
                 addRangeSlider();

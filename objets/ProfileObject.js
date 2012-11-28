@@ -4,7 +4,7 @@
  * Ex : var profile = new ProfileObject("", "", "");
  * EX : var profile = new ProfileObject("monPseudo", "monMail", "monpays");
  **/
-function ProfileObject(paramPseudo, paramMail, paramCountry)
+function ProfileObject(paramPseudo, paramMail, paramCountry, photo)
   	{
 
   		this.pseudo = paramPseudo;
@@ -12,6 +12,7 @@ function ProfileObject(paramPseudo, paramMail, paramCountry)
   		this.country = paramCountry;
   		this.victory = 0;
   		this.defeat = 0;
+      this.photo = photo;
 
 		//Nom des clés dans le localStorage
   		this.KeyForPseudo = "keyPseudo";
@@ -19,6 +20,7 @@ function ProfileObject(paramPseudo, paramMail, paramCountry)
   		this.KeyForCountry = "keyCountry";
   		this.KeyForVictory = "keyVictory";
   		this.KeyForDefeat = "keyDefeat";
+      this.KeyForPhoto = "keyPhoto";
 
 		// Affiche les détails du profil dans une popup JS
   		this.popupDetails = function ()
@@ -46,6 +48,7 @@ function ProfileObject(paramPseudo, paramMail, paramCountry)
   			localStorage.setItem(this.KeyForCountry, this.country);
   			localStorage.setItem(this.KeyForVictory, this.victory);
   			localStorage.setItem(this.KeyForDefeat, this.defeat);
+        localStorage.setItem(this.KeyForPhoto, this.photo);
   		}
 
 		// Charge le profil depuis le navigateur
@@ -59,6 +62,7 @@ function ProfileObject(paramPseudo, paramMail, paramCountry)
 			this.country = localStorage.getItem(this.KeyForCountry);
 			this.victory = localStorage.getItem(this.KeyForVictory);
 			this.defeat = localStorage.getItem(this.KeyForDefeat);
+      this.photo = localStorage.getItem(this.KeyForPhoto)
 		}
 
   	}

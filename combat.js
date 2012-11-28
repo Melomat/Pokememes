@@ -1,8 +1,44 @@
-function addCombatDIvs()
+
+//permet de retirer les éléments de choix de personnage
+function removeCharacterChoserDivs()
 {
+	var body = document.getElementById("body");
+	var nodes = body.childNodes;
+	for(i = nodes.length-1 ; i > 0 ; i--) 
+	{
+		var child = nodes[i];
+		if(child.nodeName != "CANVAS")
+		{
+			body.removeChild(body.childNodes[i]);
+		}
+	}
+}
+
+//change l'url
+function pushEtat()
+{
+	if(window.history && history.pushState)
+	{
+		history.pushState("1", "combat", location.pathname+"#combat");
+	}
+}
+
+//permet d'abandonner le combat si jamais l'utilisateur veut revenir au choix des personnages
+function addBackListener()
+{
+	window.addEventListener('popstate', function(event)
+	{
+		abandon();
+	});
+}
+
+//construit l'affichage de la zone de combat
+function addCombatDIvs()
+{	
 	var body = document.getElementById("body");
 	var globalCharacterDiv = document.createElement("div");
 	globalCharacterDiv.className = "globalCharacterDiv";
+	globalCharacterDiv.setAttribute("id", "ennemyGlobalCharacterDiv");
 	body.appendChild(globalCharacterDiv);
 
 	var ennemyDiv = document.createElement("div");
@@ -51,40 +87,112 @@ function addCombatDIvs()
 	nomChar.appendChild(characterName);
     selfDiv.appendChild(nomChar);
 
+    var button = document.createElement("input");
+	button.setAttribute("type", "button");
+	button.setAttribute("id", "abandonButton");
+	button.setAttribute("value", "ABANDON..");
+	button.addEventListener('click', function () { abandon() }, false);
+	document.getElementById("body").appendChild(button);
 
-    addAttaquesDiv("selfDiv");
 
+    getAttaques();
+    pushEtat();
+    addBackListener();
 }
 
-function addAttaquesDiv(nomParent)
+
+//charge les attaques des personages
+function getAttaques()
 {
-	var parentDiv = document.getElementById(nomParent);
+	load_attaques(persoSelf.id, 1);
+	load_attaques(persoEnnemi.id, 2);
+}
+
+
+//ajoute la div contenant les attaques
+function addAttaquesDiv()
+{
+	var y = 0;
+	var parentDiv = document.getElementById("selfDiv");
 
 	var attaqueChoserDiv = document.createElement("div");
 	attaqueChoserDiv.setAttribute("id", "attaqueChoserDiv");
 	parentDiv.appendChild(attaqueChoserDiv);
 
+
+	var attendreTour = document.createElement("h2");
+	attendreTour.setAttribute("id", "attenteText");
+    var attenteText = document.createTextNode("C'est au tour de " + persoEnnemi.nom + " de jouer !");
+	attendreTour.appendChild(attenteText);
+    parentDiv.appendChild(attendreTour);
+	
+	for(i = 0 ; i < persoSelf.attaques.length ; i++)
+	{
+		creerAttaqueDiv(i, y);
+		y+=63;
+	}
+
 	var attaqueDiv= document.createElement("div");
 	attaqueDiv.setAttribute("id", "attaqueDiv");
 	document.getElementById("body").appendChild(attaqueDiv);
-	setTimeout("faireAttaque()", 2000);
+
 }
 
-function faireAttaque()
-{	
-	var video = document.createElement("video");
-	video.setAttribute("id", "video");
-	video.setAttribute("src","medias/phillipe-salop.webm");
-	video.setAttribute("autoplay", "autoplay");
-	document.getElementById("attaqueDiv").appendChild(video);
-	document.getElementById("attaqueDiv").style.left = "200px";
-	setTimeout(function(){persoSelf.perdreVie(300);}, 2000);
-	setTimeout(function(){persoSelf.perdreVie(300);}, 3000);
-	setTimeout(function(){persoSelf.perdreVie(300);}, 4000);
-	video.addEventListener("ended", videoArretee, false);
-}
-
-function videoArretee()
+//cree une div permettant de choisir les attaques
+function creerAttaqueDiv(i, y)
 {
-	document.getElementById("attaqueDiv").style.left = "-500px";
+	var chosingAttaqueDiv = document.createElement("div");
+	chosingAttaqueDiv.className ="chosingAttaqueDiv";
+
+	chosingAttaqueDiv.setAttribute("data-idattaque", persoSelf.attaques[i].id + "");
+	document.getElementById("attaqueChoserDiv").appendChild(chosingAttaqueDiv);
+	chosingAttaqueDiv.style.top=y;
+	attaque = document.createElement("h2");
+	AttaqueName = document.createTextNode(persoSelf.attaques[i].nom);
+	attaque.appendChild(AttaqueName);
+    chosingAttaqueDiv.appendChild(attaque);
+    if(persoSelf.peutJouer == false)
+    {
+    	document.getElementById("attaqueChoserDiv").style.display = "none";
+    }
+    else
+    {
+    	 document.getElementById("attenteText").style.display = "none";
+    }
+    chosingAttaqueDiv.addEventListener("click", function (){faireAttaque(this.dataset.idattaque)}, false);
+
+}
+	
+//lance une attaque
+function faireAttaque(attaqueID)
+{	
+	if(persoSelf.peutJouer == true)
+	{
+		try { socket.send("Attaque:" + attaqueID); } catch (ex) { }
+		persoSelf.persoEnnemiPerdVieWithAttaque(attaqueID);
+		persoSelf.afficherAttaque(attaqueID);
+		document.getElementById("attaqueChoserDiv").style.display = "none";
+		document.getElementById("attenteText").style.display = "none";
+	}
+}
+
+//gère le fait de recevoir une attaque
+function recevoirAttaque(attaqueID)
+{
+	persoSelf.attaqueRecueWithID(attaqueID);
+}
+
+function abandon()
+{
+	var answer = confirm ("Etes-vous sûr ? Le retour à la selection des personnages terminera la partie");
+		if (answer)
+		{
+			try { socket.send("abandon"); } catch (ex) { };
+  			window.location.reload();
+		}
+		else
+		{
+			history.pushState("1", "combat", location.pathname+"#combat");
+			window.ignorehashchange = true;
+		}
 }

@@ -7,24 +7,42 @@
     margin: 0; 
     padding:0; 
     overflow:auto; 
-    background-color: #FDFDFD;
     min-height: 650px; 
     height: 100%;
+    text-align: center;
 }
 
 #content
 {
 	height: 100%;
 	width: 100%;
-	min-height: 600px;
+	min-height: 650px;
 	position:relative;
 }
+
+#choserFilter
+{
+	height  : 100%;
+	width   :100%;
+	position: absolute;
+	left    : 0px;
+	top     : 0px;
+	z-index: 2;
+	background-color: transparent;
+	opacity: 0.4;
+	-webkit-transition-property:width, background-color;
+	-webkit-transition-duration:1s;
+	text-align: center;
+}
+
 
 h2, p
 {
 	font-family : Arial;
 	font-size: 23px;
 	margin:0px;
+	vertical-align: middle;
+	font-weight:bold;
 }
 
 
@@ -40,6 +58,24 @@ h2, p
 
 }
 
+#choixPersoTexte
+{
+	margin-top: 10px;
+	color      : #373737;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#barreBleue
+{
+	background-color: #02CFF7;
+	width:100%;
+	height:3px;
+	position: absolute;
+	bottom: 100px;
+	-webkit-box-shadow: 0 1px 5px #9F9F9F;
+}
+
 #PokememeFooter
 {
 	width             : 100%;
@@ -49,16 +85,16 @@ h2, p
 	bottom            : 0px;
 	display           : block;
 	height            : 100px;
-	text-align: center;
-	line-height: 100px;
+	text-align        : center;
+	line-height       : 100px;
 }
 
 #PokememeFooter > p
 {
-	font-family: pixel_font;
-	color      : #373737;
-	font-size  : 12px;
-	display    : inline-block;
+	font-family   : pixel_font;
+	color         : #373737;
+	font-size     : 12px;
+	display       : inline-block;
 	vertical-align: middle;
 }
 
@@ -70,46 +106,46 @@ h2, p
 	background-size    : length;
 	background-repeat  : no-repeat;
 	background-position: center;
-	position: absolute;
-	left:0px;
-	vertical-align: middle;
+	position           : absolute;
+	left               :0px;
+	vertical-align     : middle;
 }
 
 #globalChooserDiv
 {
 	font-size : 0;
 	height    :300px;
-	margin-top: 20px;
 	clear     :both;
 	min-height: 300px;
+	background-color: white;
+	margin-top: 10px;
 }
 
 
 #globalChooserDiv > *
 {
-	font-size: 1rem;
-	box-sizing :border-box;
+	font-size : 1rem;
+	box-sizing:border-box;
 }
 
 #charactersContainer
 {
-	
-    height: 300px; 
-    width:100%; 
-    display:inline-block; 
-    position:relative; 
-    overflow:hidden;
-    font-size: 1rem;
+	height        : 300px; 
+	width         :100%; 
+	display       :inline-block; 
+	position      :relative; 
+	overflow      :hidden;
+	font-size     : 1rem;
 	vertical-align: top;
 }
     
 #shadowContainerDiv
 {
-	height: 300px; 
-    width:40%; 
-    font-size: 1rem;
-	vertical-align: top;
-	display: inline-block;
+	height            : 300px; 
+	width             :40%; 
+	font-size         : 1rem;
+	vertical-align    : top;
+	display           : inline-block;
 	-webkit-box-shadow:inset 0 1px 5px #BFBFBF;
 	padding: 3px;
 }
@@ -124,32 +160,33 @@ h2, p
 
 #myRange
 {
-    width: 40%;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 10px;
-	-webkit-appearance: none;
-    background-color: #ADEBED;
-    height:20px;
-    -webkit-border-radius : 10px 10px;
-    -webkit-box-shadow: 0 3px 3px;
+	width                : 40%;
+	margin-top           : 10px;
+	margin-left          : auto;
+	margin-right         : auto;
+	margin-bottom        : 10px;
+	-webkit-appearance   : none;
+	background-color     : #ADEBED;
+	height               :20px;
+	-webkit-border-radius: 10px 10px;
+	-webkit-box-shadow   :inset 0 1px 5px #9F9F9F;
 }
 
 #myRange::-webkit-slider-thumb 
 {
-     -webkit-appearance: none;
-    background-image: url("../images/bt_bleu.png");
-    opacity: 0.9;
-    width: 60px;
-    height: 20px;
-    -webkit-border-radius : 10px 10px;
+		-webkit-appearance: none;
+		background-image: url("../images/bt_bleu.png");
+		opacity: 0.9;
+		width: 60px;
+		height: 20px;
+		-webkit-border-radius : 10px 10px;
 
 }
 
 #rangeContainer
 {
 	text-align: center;
+	background-color: white; 
 }
 
 .characterDiv
@@ -161,14 +198,14 @@ h2, p
 	background-color  : white;
 	display           :inline-block; 
 	margin-left       :10px;
-	margin-top        : 10px;
+	margin-top        : 7px;
 	text-align        : center;
 	-webkit-box-shadow: 0 1px 3px;
 }
 
 #leftCharacter
 {
-	text-align: center;
+	text-align    : center;
 	vertical-align: top;
 }
 
@@ -182,16 +219,16 @@ h2, p
 	font-family: Arial;
 	font-weight: bold;
 	color      : #373737;
-	font-size: 13px;
-	margin: 20px;
+	font-size  : 13px;
+	margin     : 20px;
 }
 
 .characterSide
 {
 	position:relative;
-    width:30%;
-    height:300px;
-    display: inline-block;
+	width   :30%;
+	height  :300px;
+	display : inline-block;
 	overflow:hidden;
 }
 
@@ -201,12 +238,18 @@ h2, p
 	font-size       : 14px !important;
 	font-family: pixel_font;
 	margin-top      : 20px;
-	background-color: #BFBFBF;
+	background-color: #02CFF7;
 	font-weight     : bold;
 	color           : #FFFFFF;
-	border: none;
-	display: inline-block;
-	vertical-align: middle;
+	border            : none;
+	display           : inline-block;
+	vertical-align    : middle;
+	-webkit-box-shadow: inset 0 1px 5px #9F9F9F;
+}
+
+#fightButton:hover
+{
+	background-color: #00AECF;
 }
 
 .characterImage
@@ -217,9 +260,9 @@ h2, p
 
 .characterName
 {
-	margin-bottom:5px;
-	font-family: Arial;
-	color: #FFFFFF;
+	margin-bottom   :5px;
+	font-family     : Arial;
+	color           : #FFFFFF;
 	background-color: #FF4242;
 }
 
@@ -245,29 +288,29 @@ h2, p
 .charactersLife > p
 {
 	vertical-align: middle;
-	display:inline-block;
-	width:60px;
-	line-height: 45px;
+	display       :inline-block;
+	width         :60px;
+	line-height   : 45px;
 }
 
 .heartDiv
 {
-	display: inline-block;
-	height: 45px;
-	width: 45px;
-	background-size: contain;
+	display         : inline-block;
+	height          : 45px;
+	width           : 45px;
+	background-size : contain;
 	background-image: url("../images/heart.png");
-	vertical-align: middle;
+	vertical-align  : middle;
 }
 
 #loader
 {
-	height: 128px;
-	width: 128px;
-	margin-left: auto;
-	margin-right: auto;	
+	height          : 128px;
+	width           : 128px;
+	margin-left     : auto;
+	margin-right    : auto;	
 	background-image: url('../images/Shape53.png');
-	margin-top: 100px;
+	margin-top      : 100px;
 
 }
 
@@ -281,11 +324,13 @@ h2, p
 
 .combatCharacterDiv
 {
-	height : 300px;
-	width  : 300px;
-	background-color: E8EEFF;
-	text-align: center;
-	border: solid 1px;
+	height            : 300px;
+	width             : 300px;
+	background-color  : E8EEFF;
+	text-align        : center;
+	-webkit-box-shadow: 0 1px 3px;
+	line-height       : 50px;
+	vertical-align    : middle;
 }
 
 
@@ -293,6 +338,7 @@ h2, p
 {
 	float       :right;
 	margin-right: 10px;
+	margin-top: 10px
 }
 
 #combatSelfDiv
@@ -304,7 +350,14 @@ h2, p
 
 .globalCharacterDiv
 {
-	height : 300px;
+	height : 330px;
+	line-height: 330px;
+}
+
+#ennemyGlobalCharacterDiv
+{
+	background-color: #02CFF7;
+	-webkit-box-shadow:inset 0 -1px 9px #4F4F4F;
 }
 
 .barreDeVie
@@ -321,14 +374,30 @@ h2, p
 
 #attaqueChoserDiv
 {
-	height          :300px;
-	width           :500px;
-	background-color: E8EEFF;
-	overflow        : hidden;
-	display         : inline-block;
-	margin-left     : 50px;
-	border          : solid 1px;
+	height     :300px;
+	width      :500px;
+	overflow   : hidden;
+	display    : inline-block;
+	margin-left: 50px;
+	position   : relative;
+
 }
+
+.chosingAttaqueDiv
+{
+	width             :494px;
+	height            : 50px;
+	position          : absolute;
+	-webkit-box-shadow: 0 1px 3px;
+	margin-top        : 3px;
+	margin-left       : 3px;
+	background-color  : white;
+	line-height       : 50px;
+	padding-left      : 10px;
+	box-sizing        : border-box;
+
+}
+
 
 #selfDiv
 {
@@ -338,10 +407,10 @@ h2, p
 
 #attaqueDiv
 {
-	height  : 300px;
+	height  : 310px;
 	width   : 500px;
 	position: fixed;
-	top     :0px;
+	top     : 10px;
 	left    :-500px;
 	-webkit-transition-property:left;
 	-webkit-transition-duration:600ms;
@@ -351,4 +420,134 @@ h2, p
 #video
 {
 	max-height: 100%;
+	-webkit-box-shadow: 5px 5px 9px  #1F1F1F;
+}
+
+
+.chosingAttaqueDiv:hover
+{
+	background-color: #FFDD00;
+}
+
+#imageAttaque
+{
+	max-height        : 100%;
+	-webkit-box-shadow: 5px 5px 9px  #1F1F1F;
+}
+
+#attenteText
+{
+	margin-left   : 50px;
+	width         : 500px;
+	text-align    : center;
+	display       : inline-block;
+	vertical-align: middle;
+}
+
+#abandonButton
+{
+	padding           : 10px 20px !important;
+	font-size         : 14px !important;
+	font-family       : pixel_font;
+	background-color  : #02CFF7;
+	font-weight       : bold;
+	color             : #FFFFFF;
+	border            : none;
+	display           : inline-block;
+	-webkit-box-shadow: inset 0 1px 5px #9F9F9F;
+}
+
+#formulaireBackground
+{
+	height: 600px;
+	width: 500px;
+	background-color: white;
+	z-index: 3;
+	position: absolute;
+	top: 20;
+	left:50%;
+	margin-left: -250px;
+	-webkit-box-shadow: 10px 10px 15px #707070;
+	padding:10px;
+	color         : #373737;
+	text-align: left;
+}
+
+#formulaireBackground > p
+{
+	font-size:12px;
+	text-align: left;
+	color      : #373737;
+	margin-top: 10px;
+}
+
+
+input:invalid 
+{
+    background-color: #ffdddd;
+    -webkit-box-shadow: 0px 0px 10px red;
+}
+
+#photoChoserGlobalDiv
+{
+	height: 100px;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#photoDiv
+{
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	border :0px solid #E7E6E6;
+	border-right: 0px;
+	box-sizing:border-box;
+
+}
+
+#photo
+{
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+#dragInDiv
+{
+	height: 100px;
+	width: 400px;
+	display: inline-block;
+	border :1px solid #E7E6E6;
+	box-sizing:border-box;
+	vertical-align: middle;
+}
+
+#formulaireButtonDiv
+{
+	height: 50px;
+	width: 100%;
+	text-align: center;
+}
+
+#okButton
+{
+	padding         : 10px 20px !important;
+	font-size       : 14px !important;
+	font-family: pixel_font;
+	margin-top      : 20px;
+	background-color: #02CFF7;
+	font-weight     : bold;
+	color           : #FFFFFF;
+	border            : none;
+	display           : inline-block;
+	vertical-align    : middle;
+	-webkit-box-shadow: inset 0 1px 5px #9F9F9F;
+	cursor: pointer;
+	text-align: center;
+}
+
+#okButton:hover
+{
+	background-color: #00AECF;
 }

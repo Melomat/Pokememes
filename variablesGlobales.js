@@ -11,6 +11,8 @@ var loaderHidden = false;
 var volumeMuted = false;
 var loaderInterval;
 
+var numJoueur;
+
 var listePersos = [];
 var listeAttaques = [];
 

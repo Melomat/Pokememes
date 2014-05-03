@@ -5,8 +5,6 @@ function barreDeVie(id)
 
 }
 
-
-
 barreDeVie.prototype.Dessiner = function(vie)
 {
 	this.barre.style.width=Math.round( vie*300/1000 );+"px";

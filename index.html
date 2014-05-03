@@ -1,9 +1,9 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-	<head>
-		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<script src="variablesGlobales.js" type="text/javascript"></script>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="variablesGlobales.js" type="text/javascript"></script>
     <script type="text/javascript" src="objets/Formulaire.class.js"></script>
     <script type="text/javascript" src="objets/ProfileObject.js"></script>
     <script type="text/javascript" src="objets/Personnage.class.js"></script>
@@ -12,165 +12,164 @@
     <script type="text/javascript" src="objets/attaqueVideo.class.js"></script>
     <script type="text/javascript" src="objets/attaqueAudio.class.js"></script>
     <script type="text/javascript" src="objets/ProfileObject.js"></script>
-		<script type="text/javascript" src="Socket.js"></script>
+    <script type="text/javascript" src="Socket.js"></script>
     <script type="text/javascript" src="combat.js"></script>
-		<script type="text/javascript" src="affichagePersonnages.js"></script>
-	 <script type="text/javascript">
+    <script type="text/javascript" src="affichagePersonnages.js"></script>
+    <script type="text/javascript">
 
-    //calcule la taille de la div qui bouge (pour le scroller)
-  	function movWidthCalcul() {
-  		movEl = document.getElementById("mov");
-  		movEl.style.width = (nbPersonnages * (largeurDivPersonnages + 10) + 10) + "px";
-  	}
-
-
-    //permet de calculer la position de la div qui bouge (qui contient les personnages)
-  	function leftShiftCalcul() {
-  		leftShiftForCharactersContainer = document.getElementById("charactersContainer").offsetWidth - movEl.offsetWidth;
-  	}
-
-    //bouge la div contenant les personnages quand il y a un changement dans le slider
-  	function sliderChange() {
-  		var range = document.getElementById("myRange");
-  		movEl.style.left = (leftShiftForCharactersContainer - range.value) + "px";
-  	}
-
-	
-  	function addRangeSlider() {
-  		var rangeDiv = document.getElementById("rangeDiv");
-
-  		var range = document.createElement("input");
-  		range.setAttribute("type", "range");
-  		range.setAttribute("id", "myRange");
-  		range.setAttribute("value", leftShiftForCharactersContainer + "");
-  		range.setAttribute("min", leftShiftForCharactersContainer + "");
-  		range.setAttribute("max", "0");
-  		rangeDiv.appendChild(range);
-  		range.addEventListener('change', function () { sliderChange() }, false);
-  	}
-
-
-  	function goToFight(characterID) 
-    {
-      var body = document.getElementById("body");
-      var choserFilter = document.createElement("div");
-      choserFilter.setAttribute("id", "choserFilter");
-      body.appendChild(choserFilter);
-      setTimeout(function(){ document.getElementById("choserFilter").style.backgroundColor = "black";}, 100);
-     
-  		try { socket.send("persoConfirme:" + characterID); } catch (ex) { }
-  	}
-
-  	
-
-  	function initLoaderVar() {
-  		loader = document.getElementById("loader");
-  	}
-
-  	function turnLoader() {
-  		loader.style.WebkitTransform = 'rotate(' + degres + 'deg)';
-  		degres = (degres + 2) % 360;
-  	}
-
-  	function turnOfLoader() {
-  		if (opacity >= 0.0) {
-  			loader.style.opacity = opacity;
-        texteLoader.style.opacity = opacity;
-  			opacity = opacity - 0.2;
-  		}
-  		else {
-  			clearInterval(loaderInterval);
-  			clearInterval(rotationInterval);
-  			var rightCharacter = document.getElementById("rightCharacter");
-  			while (rightCharacter.hasChildNodes()) {
-          rightCharacter.removeChild(rightCharacter.lastChild);
+        //calcule la taille de la div qui bouge (pour le scroller)
+        function movWidthCalcul() {
+            movEl = document.getElementById("mov");
+            movEl.style.width = (nbPersonnages * (largeurDivPersonnages + 10) + 10) + "px";
         }
-  			ennemyChosenCharacter();
-  			loaderHidden = true;
-  		}
-  	}
-
-  	function muteVolume() {
-  		audioElm = document.getElementById('backgroundAudio');
-  		if (audioElm.muted) {
-  			document.getElementById("volume").style.backgroundImage = "url('images/son_on.png')";
-  		}
-  		else {
-  			document.getElementById("volume").style.backgroundImage = "url('images/son_off.png')";
-  		}
-
-  		audioElm.muted = !audioElm.muted;
-  	}
 
 
-    function loadHeader()
-    {
-      var body = document.getElementById("content");
-      var header = document.createElement("header");
-      header.setAttribute("id", "PokememeHeader");
-      body.appendChild(header);
-    }
+        //permet de calculer la position de la div qui bouge (qui contient les personnages)
+        function leftShiftCalcul() {
+            leftShiftForCharactersContainer = document.getElementById("charactersContainer").offsetWidth - movEl.offsetWidth;
+        }
 
-	</script>
-  <script type="text/javascript" src="canvas.js"></script>
-        <script type="text/javascript" src="getCharacters.js"></script>
-        <script type="text/javascript" src="getAttaques.js"></script>
-		
-        <link rel="stylesheet" type="text/css" href="style/Style.css" />
-	</head>
-	<body onload="init()" id="body">
-    <div id="content">
-    <script>
-      loadHeader();
+        //bouge la div contenant les personnages quand il y a un changement dans le slider
+        function sliderChange() {
+            var range = document.getElementById("myRange");
+            movEl.style.left = (leftShiftForCharactersContainer - range.value) + "px";
+        }
+
+
+        function addRangeSlider() {
+            var rangeDiv = document.getElementById("rangeDiv");
+
+            var range = document.createElement("input");
+            range.setAttribute("type", "range");
+            range.setAttribute("id", "myRange");
+            range.setAttribute("value", leftShiftForCharactersContainer + "");
+            range.setAttribute("min", leftShiftForCharactersContainer + "");
+            range.setAttribute("max", "0");
+            rangeDiv.appendChild(range);
+            range.addEventListener('change', function () { sliderChange() }, false);
+        }
+
+
+        function goToFight(characterID)
+        {
+            var body = document.getElementById("body");
+            var choserFilter = document.createElement("div");
+            choserFilter.setAttribute("id", "choserFilter");
+            body.appendChild(choserFilter);
+            setTimeout(function(){ document.getElementById("choserFilter").style.backgroundColor = "black";}, 100);
+
+            try { socket.send("persoConfirme:" + characterID); } catch (ex) { }
+        }
+
+
+
+        function initLoaderVar() {
+            loader = document.getElementById("loader");
+        }
+
+        function turnLoader() {
+            loader.style.WebkitTransform = 'rotate(' + degres + 'deg)';
+            degres = (degres + 2) % 360;
+        }
+
+        function turnOfLoader() {
+            if (opacity >= 0.0) {
+                loader.style.opacity = opacity;
+                texteLoader.style.opacity = opacity;
+                opacity = opacity - 0.2;
+            }
+            else {
+                clearInterval(loaderInterval);
+                clearInterval(rotationInterval);
+                var rightCharacter = document.getElementById("rightCharacter");
+                while (rightCharacter.hasChildNodes()) {
+                    rightCharacter.removeChild(rightCharacter.lastChild);
+                }
+                ennemyChosenCharacter();
+                loaderHidden = true;
+            }
+        }
+
+        function muteVolume() {
+            audioElm = document.getElementById('backgroundAudio');
+            if (audioElm.muted) {
+                document.getElementById("volume").style.backgroundImage = "url('images/son_on.png')";
+            }
+            else {
+                document.getElementById("volume").style.backgroundImage = "url('images/son_off.png')";
+            }
+
+            audioElm.muted = !audioElm.muted;
+        }
+
+
+        function loadHeader()
+        {
+            var body = document.getElementById("content");
+            var header = document.createElement("header");
+            header.setAttribute("id", "PokememeHeader");
+            body.appendChild(header);
+        }
     </script>
-      <h2 id="choixPersoTexte">.:CHOISISSEZ UN PERSONNAGE:.</h2>
-      <div id="globalChooserDiv">
-    		<div id="leftCharacter" class="characterSide"></div>
-        <div id="shadowContainerDiv">
-          <div id="charactersContainer">
-            <div id="mov"></div>
-    				<script>
-               load_chars();
+    <script type="text/javascript" src="canvas.js"></script>
+    <script type="text/javascript" src="getCharacters.js"></script>
+    <script type="text/javascript" src="getAttaques.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style/Style.css" />
+</head>
+<body onload="init()" id="body">
+    <div id="content">
+        <script type="text/javascript">
+            loadHeader();
+        </script>
+        <h2 id="choixPersoTexte">.:CHOISISSEZ UN PERSONNAGE:.</h2>
+        <div id="globalChooserDiv">
+            <div id="leftCharacter" class="characterSide"></div>
+            <div id="shadowContainerDiv">
+                <div id="charactersContainer">
+                    <div id="mov"></div>
+                    <script type="text/javascript">
+                        load_chars();
+                    </script>
+                </div>
+            </div>
+            <div id="rightCharacter" class="characterSide"></div>
+            <script type="text/javascript">
+                var rightCharaterDiv = document.getElementById("rightCharacter");
+                var loaderDiv = document.createElement("div");
+                loaderDiv.setAttribute("id", "loader");
+                rightCharaterDiv.appendChild(loaderDiv);
+                initLoaderVar();
+                rotationInterval = setInterval(turnLoader, 1);
+                var texteLoader = document.createElement("p");
+                texteLoader.setAttribute("id", "texteLoader");
+                var texte = document.createTextNode("Veuillez patienter pendant que l'autre joueur choisis son personnage..");
+                texteLoader.appendChild(texte);
+                rightCharaterDiv.appendChild(texteLoader);
             </script>
-          </div>
         </div>
-    		<div id="rightCharacter" class="characterSide"></div>
-    		<script>
-    					var rightCharaterDiv = document.getElementById("rightCharacter");
-    					var loaderDiv = document.createElement("div");
-    					loaderDiv.setAttribute("id", "loader");
-    					rightCharaterDiv.appendChild(loaderDiv);
-    					initLoaderVar();
-    					rotationInterval = setInterval(turnLoader, 1);
-              var texteLoader = document.createElement("p");
-              texteLoader.setAttribute("id", "texteLoader");
-              var texte = document.createTextNode("Veuillez patienter pendant que l'autre joueur choisis son personnage..");
-              texteLoader.appendChild(texte);
-              rightCharaterDiv.appendChild(texteLoader);
-    		</script>
-      </div>
-      <div id="rangeContainer">
-    	 <div id="rangeDiv"></div>
-      </div>
-      <audio id="backgroundAudio" controls="controls" loop="loop" autoplay="autoplay" hidden="hidden">
-  	    <!--<source src="medias/Pokemon-Theme.mp3" type="audio/mpeg" />-->
-  		  Your browser does not support the audio element.
-    	</audio>
-      <div id="barreBleue"></div>
-      <div id="PokememeFooter">
-    	 	<script>
-      				var divVolume = document.createElement("div");
-      				divVolume.setAttribute("id", "volume");
-      				divVolume.addEventListener('click', function () { muteVolume() }, false);
-      				document.getElementById("PokememeFooter").appendChild(divVolume);
+        <div id="rangeContainer">
+            <div id="rangeDiv"></div>
+        </div>
+        <audio id="backgroundAudio" controls="controls" loop="loop" autoplay="autoplay" hidden="hidden">
+            <!--<source src="medias/Pokemon-Theme.mp3" type="audio/mpeg" />-->
+            Your browser does not support the audio element.
+        </audio>
+        <div id="barreBleue"></div>
+        <div id="PokememeFooter">
+            <script type="text/javascript">
+                var divVolume = document.createElement("div");
+                divVolume.setAttribute("id", "volume");
+                divVolume.addEventListener('click', function () { muteVolume() }, false);
+                document.getElementById("PokememeFooter").appendChild(divVolume);
 
-              var texteFooter = document.createElement("p");
-              var texte = document.createTextNode("Matthias et Louis, Pokememe masters");
-              texteFooter.appendChild(texte);
-              document.getElementById("PokememeFooter").appendChild(texteFooter);
-    		</script>
+                var texteFooter = document.createElement("p");
+                var texte = document.createTextNode("Matthias et Louis, Pokememe masters");
+                texteFooter.appendChild(texte);
+                document.getElementById("PokememeFooter").appendChild(texteFooter);
+            </script>
 
-      </div>
+        </div>
     </div>
-	</body>
+</body>
 </html>
